@@ -28,5 +28,5 @@ function closeUIModal() {
 shuffle();
 // Event listeners
 document.getElementById('uiModalClose').addEventListener('click', closeUIModal);
-document.getElementById('playAgainButton').addEventListener('click', closeUIModal); // To be changed
+//document.getElementById('playAgainButton').addEventListener('click', closeUIModal); // To be changed
 cards.forEach(card => card.addEventListener('click', flipCard));
