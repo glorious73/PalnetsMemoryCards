@@ -9,6 +9,7 @@ export default class UI {
         modal.style.display = "block";
         let template = document.getElementById('gameFinishedTemplate');
         let fragment = document.importNode(template.content, true);
+        modalContent.innerHTML = '';
         modalContent.appendChild(fragment);
     }
 
