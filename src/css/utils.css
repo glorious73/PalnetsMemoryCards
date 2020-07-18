@@ -1,11 +1,3 @@
-/*-- Style to all elements --*/
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-/*-- /Style to all elements --*/
-
 /*-- Display Block --*/
 .d-block {
     display: block;
