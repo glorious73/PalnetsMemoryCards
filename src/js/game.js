@@ -46,7 +46,7 @@ export default class Game {
             this.firstCard.classList.remove('flip');
             this.secondCard.classList.remove('flip');
             this.resetBoard();
-        }, 1500);
+        }, 1100);
     }
 
     resetBoard() {
@@ -59,5 +59,18 @@ export default class Game {
             let randomPos = Math.floor(Math.random() * 12);
             card.style.order = randomPos;
         });
+    }
+
+    areAllCardsMatched(cards) {
+        // 1. Assume is finished
+        let isAllMatched = true;
+        // 2. change if not finished
+        cards.forEach(card => {
+            if(!card.classList.contains('matched')) {
+                isAllMatched = false;
+                return;
+            }
+        });
+        return isAllMatched;
     }
 }
