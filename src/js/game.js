@@ -23,7 +23,6 @@ export default class Game {
 
     checkForMatch() {
         let isMatch = (this.firstCard.dataset.planet) === (this.secondCard.dataset.planet);
-        console.log(`first card = ${this.firstCard.dataset.planet}.\nsecond card = ${this.secondCard.dataset.planet}.\n isMatch = ${isMatch}`);
         if (isMatch)
             this.disableCards();
         else
