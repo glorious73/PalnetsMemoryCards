@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap" rel="stylesheet">
+    <!--Stylesheets-->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <link rel="stylesheet" type="text/css" href="css/uielement.css">
     <link rel="stylesheet" type="text/css" href="css/memorycard.css">
+    <link rel="stylesheet" type="text/css" href="css/uielement.css">
+    <link rel="stylesheet" type="text/css" href="css/utils.css">
     <title>Glorious Memory Cards</title>
 </head>
 <body>
@@ -68,7 +72,7 @@
     <!--Modal-->
     <div id="uiModal" class="ui-modal">
         <!-- The Close Button -->
-        <span class="ui-modal-close" onclick="closeUIModal()">&times;</span>
+        <span class="ui-modal-close" id="uiModalClose">&times;</span>
         <!-- Modal Content (The Image) -->
         <div class="ui-modal-content" id="uiModalContent">
 
@@ -77,6 +81,19 @@
         <div id="uiModalCaption"></div>
     </div>
     <!--/Modal-->
+    <!--Templates-->
+    <template id="gameFinishedTemplate">
+        <div class="card card-color p-5 mt-4">
+            <h2>Congrats!</h2>
+            <br />
+            <h4 class="p-3">You finished the game in XYZ seconds.</h4>
+            <br />
+            <div class="d-flex flex-row align-items-center justify-content-center">
+                <button type="button" class="btn-play-again mx-2" id="playAgainButton">Play Again</button>
+            </div>
+        </div>
+    </template>
+    <!--Templates-->
     <script src="./js/app.js"></script>
 </body>
 </html>
