@@ -7,8 +7,9 @@
 }
 
 .card-color {
-  background: rgb(235,235,235);
-  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(252,252,252,1) 42%, rgba(255,255,255,1) 100%);
+  background: #094d85;
+  background: linear-gradient(90deg, rgba(9,77,133,1) 0%, rgba(8,68,117,1) 35%, rgba(8,68,117,1) 100%);
+  color: #fff;
 }
 
 .card:hover {
@@ -37,8 +38,8 @@
 .btn-play-again {
   padding: 0.8rem;
   text-decoration: none;
-  background: #05138d;
-  color: rgb(188, 228, 13);
+  background: #094d85;
+  color: #fff;
   border: none;
   border-radius: 0.8rem;
   font-weight: bold;
