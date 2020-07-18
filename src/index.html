@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="css/uielement.css">
-    <link rel="stylesheet" type="text/css" href="css/utils.css">
+    <link rel="stylesheet" type="text/css" href="css/memorycard.css">
     <title>Glorious Memory Cards</title>
 </head>
 <body>
@@ -65,6 +65,18 @@
             <img class="back-face" src="img/sun.svg" alt="Sun" />
         </div>
     </section>
+    <!--Modal-->
+    <div id="uiModal" class="ui-modal">
+        <!-- The Close Button -->
+        <span class="ui-modal-close" onclick="closeUIModal()">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <div class="ui-modal-content" id="uiModalContent">
+
+        </div>
+        <!-- Modal Caption -->
+        <div id="uiModalCaption"></div>
+    </div>
+    <!--/Modal-->
     <script src="./js/app.js"></script>
 </body>
 </html>

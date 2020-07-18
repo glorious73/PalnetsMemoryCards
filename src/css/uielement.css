@@ -1,55 +1,122 @@
-/*-- Memory game container --*/
-.memory-game {
-    width: 640px;
-    height: 640px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    perspective: 1000px;
+/*-- Container & Card --*/
+.card {
+  animation: 0.9s ease-in-out 0s 1 fadeIn;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 5px;
+  transition: 0.3s;
 }
-/*-- /Memory game container --*/
+
+.card-color {
+  background: rgb(235,235,235);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(252,252,252,1) 42%, rgba(255,255,255,1) 100%);
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card-logo {
+  width: 45%;
+  height: auto;
+  justify-self: center;
+  margin: 1rem auto 0.1rem auto;
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0.1;
+  }
+
+  100% {
+      opacity: 1;
+  }
+}
+/*-- /Container & Card --*/
 
 /*-- Control buttons --*/
-
+.btn-play-again {
+  padding: 0.8rem;
+  text-decoration: none;
+  background: #05138d;
+  color: rgb(188, 228, 13);
+  border: none;
+  border-radius: 0.8rem;
+  font-weight: bold;
+}
+.btn-play-again:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+.btn-play-again:focus {
+  opacity: 1;
+  cursor: default;
+}
 /*-- /Control buttons --*/
 
-/*-- Memory card --*/
-.memory-card {
-    width: calc(25% - 10px);
-    height: calc(33.333% - 10px);
-    margin: 5px;
-    position: relative;
-    transform: scale(1);
-    transform-style: preserve-3d;
-    transition: transform .5s;
-    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
-}
-.memory-card:active {
-    transform: scale(0.97);
-    transition: transform .2s;
-}
-.memory-card.flip {
-    transform: rotateY(180deg);
-}
-.matched .front-face, .matched .back-face {
-  background: #115083;
-  opacity: 0.9;
-}
-/*-- /Memory card --*/
-
-/*-- Card faces --*/
-.front-face,
-.back-face {
+/*-- Modal --*/
+/* The Modal (background) */
+.ui-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  padding-top: 10vh;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  padding: 20px;
-  position: absolute;
-  border-radius: 5px;
-  background: #094d85;
-  backface-visibility: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+/* Modal Content (Image) */
+.ui-modal-content {
+  margin: auto;
+  display: block;
+  width: 90%;
+  max-width: 70vw;
+}
+/* Caption of Modal - Same Width as the content */
+#uiModalCaption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+/* Add Animation - Zoom in the Modal */
+.ui-modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.3s;
 }
 
-.front-face {
-  transform: rotateY(180deg);
+@keyframes zoom {
+  from {
+      transform: scale(0)
+  }
+
+  to {
+      transform: scale(1)
+  }
 }
-/*-- /Card faces --*/
+/* The Close Button */
+.ui-modal-close {
+  position: absolute;
+  top: 10vh;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.ui-modal-close:hover,
+.ui-modal-close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+/*-- /Modal --*/
