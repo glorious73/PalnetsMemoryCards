@@ -1,0 +1,13 @@
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    background: skyblue url('http://artem.anmedio.ru/dev/planet/space.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
