@@ -1,18 +1,36 @@
 /*-- Memory game container --*/
 .memory-game {
     width: 640px;
-    height: 640px;
-    margin: auto;
+    height: 760px;
+    margin: 4rem auto 6rem auto;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     perspective: 1000px;
 }
 /*-- /Memory game container --*/
 
+/*-- Game Title --*/
+.game-header {
+    display: flex;
+    justify-content: space-between;
+}
+.game-title {
+    color: #fff;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+.time-elapsed {
+    color: #fff;
+    margin-bottom: 1rem;
+    text-align: right;
+}
+/*-- /Game Title --*/
+
 /*-- Memory card --*/
 .memory-card {
     width: calc(25% - 10px);
-    height: calc(33.333% - 10px);
+    height: calc(25% - 10px);
     margin: 5px;
     position: relative;
     transform: scale(1);
@@ -27,7 +45,8 @@
 .memory-card.flip {
     transform: rotateY(180deg);
 }
-.matched .front-face, .matched .back-face {
+.matched .front-face, 
+.matched .back-face {
   background: #115083;
   opacity: 0.8;
 }
@@ -49,3 +68,12 @@
   transform: rotateY(180deg);
 }
 /*-- /Memory Card faces --*/
+
+@media screen and (max-width: 767px) {
+    /*-- Memory game container --*/
+    .memory-game {
+        height: 80vh;
+        padding: 1.5rem;
+    }
+    /*-- /Memory game container --*/
+}
