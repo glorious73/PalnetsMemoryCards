@@ -4,10 +4,12 @@ export default class Game {
         this.secondCard = null;
         this.hasFlippedCard = false;
         this.lockBoard      = false;
+        this.totalSeconds   = 0;
     }
 
     flipCard(card) {
         if (this.lockBoard) return;
+        if(card == this.firstCard) return;
     
         card.classList.add('flip');
     
@@ -55,9 +57,14 @@ export default class Game {
 
     shuffle(cards) {
         cards.forEach(card => {
-            let randomPos = Math.floor(Math.random() * 12);
+            let randomPos = Math.floor(Math.random() * 16);
             card.style.order = randomPos;
         });
+    }
+
+    updateTime() {
+        this.totalSeconds++;
+        document.getElementById('timeElapsed').innerHTML = `Time Elapsed: ${this.pad(this.totalSeconds)}s`;
     }
 
     areAllCardsMatched(cards) {
@@ -71,5 +78,13 @@ export default class Game {
             }
         });
         return isAllMatched;
+    }
+
+    pad(val) {
+        let valString = val + "";
+        if (valString.length < 2) 
+            return "0" + valString;
+        else
+            return valString;
     }
 }
