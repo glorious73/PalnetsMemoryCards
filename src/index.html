@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Icon-->
+    <link rel="icon" href="./img/solar-system-orbit.svg">
     <!--Font-->
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap" rel="stylesheet">
     <!--Stylesheets-->
@@ -10,10 +12,15 @@
     <link rel="stylesheet" type="text/css" href="css/memorycard.css">
     <link rel="stylesheet" type="text/css" href="css/uielement.css">
     <link rel="stylesheet" type="text/css" href="css/utils.css">
-    <title>Glorious Memory Cards</title>
+    <title>Planets Memory Cards</title>
 </head>
 <body>
     <section class="memory-game">
+        <!--Game Title-->
+        <div class="game-header mx-auto w-100">
+            <label class="game-title">Planets  Memory Cards</label>
+            <label class="time-elapsed" id="timeElapsed"></label>
+        </div>
         <!--Mercury-->
         <div class="memory-card" data-planet="mercury">
             <img class="front-face" src="img/mercury.svg" alt="Mercury" />
@@ -68,6 +75,24 @@
             <img class="front-face" src="img/saturn.svg" alt="Saturn" />
             <img class="back-face" src="img/sun.svg" alt="Sun" />
         </div>
+        <!--Uranus-->
+        <div class="memory-card" data-planet="uranus">
+            <img class="front-face" src="img/uranus.svg" alt="Uranus" />
+            <img class="back-face" src="img/sun.svg" alt="Sun" />
+        </div>
+        <div class="memory-card" data-planet="uranus">
+            <img class="front-face" src="img/uranus.svg" alt="Uranus" />
+            <img class="back-face" src="img/sun.svg" alt="Sun" />
+        </div>
+        <!--Neptune-->
+        <div class="memory-card" data-planet="neptune">
+            <img class="front-face" src="img/neptune.svg" alt="Neptune" />
+            <img class="back-face" src="img/sun.svg" alt="Sun" />
+        </div>
+        <div class="memory-card" data-planet="neptune">
+            <img class="front-face" src="img/neptune.svg" alt="Neptune" />
+            <img class="back-face" src="img/sun.svg" alt="Sun" />
+        </div>
     </section>
     <!--Modal-->
     <div id="uiModal" class="ui-modal">
@@ -84,9 +109,9 @@
     <!--Templates-->
     <template id="gameFinishedTemplate">
         <div class="card card-color p-5 mt-4">
-            <h2>Congrats!</h2>
+            <h1>Congratulations!</h1>
             <br />
-            <h4 class="p-3">You finished the game in XYZ seconds.</h4>
+            <h3 id="gameTime">You finished the game in XYZ seconds.</h3>
             <br />
             <div class="d-flex flex-row align-items-center justify-content-center">
                 <button type="button" class="btn-play-again mx-2" id="playAgainButton">Play Again</button>
