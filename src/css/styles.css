@@ -5,10 +5,17 @@
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     font-family: 'Baloo Da 2', cursive;
-    background: skyblue url('http://artem.anmedio.ru/dev/planet/space.jpg');
+    background: #111 url('http://artem.anmedio.ru/dev/planet/space.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        justify-content: center;
+        align-items: center;
+    }
 }
