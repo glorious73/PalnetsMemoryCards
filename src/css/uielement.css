@@ -35,6 +35,17 @@
 /*-- /Container & Card --*/
 
 /*-- Control buttons --*/
+button:disabled {
+  opacity: 0.5;
+}
+.btn-restart {
+  padding: 0.6rem;
+  background: #094d85;
+  color: #fff;
+  border: none;
+  border-radius: 0.8rem;
+  margin-bottom: 1rem;
+}
 .btn-play-again {
   padding: 0.8rem;
   text-decoration: none;
@@ -70,7 +81,14 @@
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
-/* Modal Content (Image) */
+/* Modal Header */
+.ui-modal-header {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  font-size: 1.3rem;
+}
+/* Modal Content */
 .ui-modal-content {
   margin: auto;
   display: block;
@@ -121,3 +139,20 @@
   cursor: pointer;
 }
 /*-- /Modal --*/
+
+/*-- Small Screens --*/
+@media screen and (max-width: 767px) {
+  .ui-modal-content {
+    margin: auto;
+    display: flex;
+    width: 85vw;
+    justify-content: start;
+    align-items: center;
+    max-width: 70vw;
+  }
+  .card {
+    width: 80vw;
+    margin: auto;
+  }
+}
+/*-- /Small Screens --*/
