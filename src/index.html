@@ -17,9 +17,12 @@
 <body>
     <section class="memory-game">
         <!--Game Title-->
-        <div class="game-header mx-auto w-100">
+        <div class="game-title mx-auto w-100">
             <label class="game-title">Planets  Memory Cards</label>
-            <label class="time-elapsed" id="timeElapsed"></label>
+        </div>
+        <div class="game-header mx-auto w-100">
+            <label class="time-elapsed" id="timeElapsed">Time Elapsed: 0s</label>
+            <button class="btn-restart" id="btnRestart">Restart</button>
         </div>
         <!--Mercury-->
         <div class="memory-card" data-planet="mercury">
@@ -97,7 +100,7 @@
     <!--Modal-->
     <div id="uiModal" class="ui-modal">
         <!-- The Close Button -->
-        <span class="ui-modal-close" id="uiModalClose">&times;</span>
+        <!-- <span class="ui-modal-close" id="uiModalClose">&times;</span> -->
         <!-- Modal Content (The Image) -->
         <div class="ui-modal-content" id="uiModalContent">
 
@@ -109,11 +112,14 @@
     <!--Templates-->
     <template id="gameFinishedTemplate">
         <div class="card card-color p-5 mt-4">
-            <h1>Congratulations!</h1>
+            <div class="ui-modal-header">
+                <label>Congratulations!</label>
+            </div>
             <br />
             <h3 id="gameTime">You finished the game in XYZ seconds.</h3>
             <br />
             <div class="d-flex flex-row align-items-center justify-content-center">
+                <button type="button" class="btn-play-again mx-2" id="closeButton">Close</button>
                 <button type="button" class="btn-play-again mx-2" id="playAgainButton">Play Again</button>
             </div>
         </div>

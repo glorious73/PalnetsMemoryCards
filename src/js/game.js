@@ -7,6 +7,33 @@ export default class Game {
         this.totalSeconds   = 0;
     }
 
+    restartGame(cards, ui) {
+        // 1. Disable Restart button
+        const restartButton = document.getElementById('btnRestart');
+        restartButton.innerHTML = 'Restarting...';
+        restartButton.disabled = true;
+        // 2. Unflip and Unmatch cards
+        cards.forEach(card => {
+            card.classList.remove('flip');
+            card.classList.remove('matched');
+        });
+        console.log(`removed classes for card`);
+        // 3. Shuffle cards
+        setTimeout(this.shuffle(cards), 4000);
+        console.log(`shuffled`);
+        // 4. Reset board
+        this.resetBoard();
+        console.log(`reset board`);
+        // 5. Restart counter
+        this.totalSeconds = 0;
+        console.log(`total seconds = ${this.totalSeconds}`);
+        // 6. Ensure modal is removed
+        ui.closeUIModal();
+        // 7. Enable Restart button
+        restartButton.innerHTML = 'Restart';
+        restartButton.disabled = false;
+    }
+
     flipCard(card) {
         if (this.lockBoard) return;
         if(card == this.firstCard) return;

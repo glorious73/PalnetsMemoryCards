@@ -8,8 +8,10 @@ export default class UI {
         let template = document.getElementById('gameFinishedTemplate');
         let fragment = document.importNode(template.content, true);
         // add event listeners
-        const button = fragment.querySelector('#playAgainButton');
-        button.addEventListener('click', this.reload);
+        const playbutton = fragment.querySelector('#playAgainButton');
+        playbutton.addEventListener('click', this.reload);
+        const closebutton = fragment.querySelector('#closeButton');
+        closebutton.addEventListener('click', this.closeUIModal);
         // add time elapsed
         fragment.querySelector('#gameTime').innerHTML = `You finished the game in ${timeElapsed} seconds.`;
         return fragment;

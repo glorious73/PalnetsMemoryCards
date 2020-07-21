@@ -19,13 +19,13 @@ function shuffle() {
 function updateTime() {
     game.updateTime();
 }
+function restartGame() {
+    game.restartGame(cards, ui);
+}
 
 // UI
 function showGameFinishedModal() {
     ui.showGameFinishedModal(game.totalSeconds);
-}
-function closeUIModal() {
-    ui.closeUIModal();
 }
 
 // Initial game setup
@@ -33,6 +33,5 @@ shuffle();
 // Time Elapsed
 let timeElapsedInterval = setInterval(updateTime, 1000);
 // Event listeners
-document.getElementById('uiModalClose').addEventListener('click', closeUIModal);
-//document.getElementById('playAgainButton').addEventListener('click', closeUIModal); // To be changed
+document.getElementById('btnRestart').addEventListener('click', restartGame);
 cards.forEach(card => card.addEventListener('click', flipCard));
