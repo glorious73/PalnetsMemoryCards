@@ -3,13 +3,13 @@ export default class UI {
 
     }
 
-    instantiateGameFinishedModal(timeElapsed) {
+    instantiateGameFinishedModal(timeElapsed, playAgainCallback) {
         // grab template
         let template = document.getElementById('gameFinishedTemplate');
         let fragment = document.importNode(template.content, true);
         // add event listeners
         const playbutton = fragment.querySelector('#playAgainButton');
-        playbutton.addEventListener('click', this.reload);
+        playbutton.addEventListener('click', playAgainCallback);
         const closebutton = fragment.querySelector('#closeButton');
         closebutton.addEventListener('click', this.closeUIModal);
         // add time elapsed
@@ -17,9 +17,9 @@ export default class UI {
         return fragment;
     }
 
-    showGameFinishedModal(timeElapsed) {
+    showGameFinishedModal(timeElapsed, restartGame) {
         // Instantiate modal content
-        const fragment = this.instantiateGameFinishedModal(timeElapsed);
+        const fragment = this.instantiateGameFinishedModal(timeElapsed, restartGame);
         // Show modal
         const modal = document.getElementById("uiModal");
         const modalContent = document.getElementById("uiModalContent");
