@@ -51,8 +51,7 @@
 
 .matched .front-face, 
 .matched .back-face {
-  background: #115083;
-  opacity: 0.8;
+  background-color: #0c426e;
 }
 /*-- /Memory card --*/
 
