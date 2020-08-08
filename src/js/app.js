@@ -1,37 +1,31 @@
 import Game from './game';
 import UI from './UI';
+import Card from './card';
+import Util from './util';
 
-const game  = new Game();
+const util  = new Util();
+const game  = new Game(util);
 const ui    = new UI();
+const card  = new Card();
 const cards = document.querySelectorAll('.memory-card');
 
 // Game
 function flipCard() {
     game.flipCard(this);
-    if(game.areAllCardsMatched(cards)) {
-        clearInterval(timeElapsedInterval);
-        showGameFinishedModal();
+    if(card.areAllCardsMatched(cards)) {
+        ui.showGameFinishedModal(game.totalSeconds, restartGame);
     }
 }
 function shuffle() {
     game.shuffle(cards);
 }
-function updateTime() {
-    game.updateTime();
-}
-function restartGame() {
-    game.restartGame(cards, ui);
-}
-
-// UI
-function showGameFinishedModal() {
-    ui.showGameFinishedModal(game.totalSeconds);
+function restartGame() {    
+    ui.closeUIModal();
+    game.restartGame(cards);
 }
 
 // Initial game setup
 shuffle();
-// Time Elapsed
-let timeElapsedInterval = setInterval(updateTime, 1000);
 // Event listeners
 document.getElementById('btnRestart').addEventListener('click', restartGame);
 cards.forEach(card => card.addEventListener('click', flipCard));
