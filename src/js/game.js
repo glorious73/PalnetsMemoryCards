@@ -1,13 +1,16 @@
 export default class Game {
-    constructor() {
-        this.firstCard  = null;
-        this.secondCard = null;
+    constructor(util) {
+        this.firstCard      = null;
+        this.secondCard     = null;
         this.hasFlippedCard = false;
         this.lockBoard      = false;
+        this.gameStarted    = false;
         this.totalSeconds   = 0;
+        this.timeInterval   = null;
+        this.util           = util;
     }
 
-    restartGame(cards, ui) {
+    restartGame(cards) {
         // 1. Disable Restart button
         const restartButton = document.getElementById('btnRestart');
         restartButton.innerHTML = 'Restarting...';
@@ -17,24 +20,28 @@ export default class Game {
             card.classList.remove('flip');
             card.classList.remove('matched');
         });
-        console.log(`removed classes for card`);
         // 3. Shuffle cards
-        setTimeout(this.shuffle(cards), 4000);
-        console.log(`shuffled`);
+        this.shuffle(cards);
         // 4. Reset board
         this.resetBoard();
-        console.log(`reset board`);
         // 5. Restart counter
         this.totalSeconds = 0;
-        console.log(`total seconds = ${this.totalSeconds}`);
-        // 6. Ensure modal is removed
-        ui.closeUIModal();
+        document.getElementById('timeElapsed').innerHTML = `Time Elapsed: 00s`;
+        // 6. Disable Game Started flag
+        this.gameStarted = false;
         // 7. Enable Restart button
         restartButton.innerHTML = 'Restart';
         restartButton.disabled = false;
     }
 
     flipCard(card) {
+        if(!this.gameStarted) {
+            this.gameStarted = true;
+            let self = this; // to ensure the object calls updateTime
+            this.timeInterval = setInterval(function() { self.updateTime(); }, 1000);
+            console.log(`Interval started`);
+        }
+        
         if (this.lockBoard) return;
         if(card == this.firstCard) return;
     
@@ -90,28 +97,13 @@ export default class Game {
     }
 
     updateTime() {
-        this.totalSeconds++;
-        document.getElementById('timeElapsed').innerHTML = `Time Elapsed: ${this.pad(this.totalSeconds)}s`;
+        if(this.gameStarted) {
+            this.totalSeconds++;
+            document.getElementById('timeElapsed').innerHTML = `Time Elapsed: ${this.util.pad(this.totalSeconds)}s`;
+        }
     }
 
-    areAllCardsMatched(cards) {
-        // 1. Assume is finished
-        let isAllMatched = true;
-        // 2. change if not finished
-        cards.forEach(card => {
-            if(!card.classList.contains('matched')) {
-                isAllMatched = false;
-                return;
-            }
-        });
-        return isAllMatched;
-    }
-
-    pad(val) {
-        let valString = val + "";
-        if (valString.length < 2) 
-            return "0" + valString;
-        else
-            return valString;
+    clearTimeInterval() {
+        clearInterval(this.timeInterval);
     }
 }
