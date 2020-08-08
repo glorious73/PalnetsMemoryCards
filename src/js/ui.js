@@ -23,7 +23,9 @@ export default class UI {
         // Show modal
         const modal = document.getElementById("uiModal");
         const modalContent = document.getElementById("uiModalContent");
-        modal.style.display = "block";
+        modal.style.display = "flex";
+        modal.style.justifyContent = "center";
+        modal.style.alignItems = "center";
         modalContent.innerHTML = '';
         modalContent.appendChild(fragment);
     }
