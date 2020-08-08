@@ -48,6 +48,7 @@
 .memory-card.flip {
     transform: rotateY(180deg);
 }
+
 .matched .front-face, 
 .matched .back-face {
   background: #115083;
