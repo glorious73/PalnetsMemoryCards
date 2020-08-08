@@ -13,6 +13,7 @@ const cards = document.querySelectorAll('.memory-card');
 function flipCard() {
     game.flipCard(this);
     if(card.areAllCardsMatched(cards)) {
+        game.clearTimeInterval();
         ui.showGameFinishedModal(game.totalSeconds, restartGame);
     }
 }
