@@ -39,7 +39,6 @@ export default class Game {
             this.gameStarted = true;
             let self = this; // to ensure the object calls updateTime
             this.timeInterval = setInterval(function() { self.updateTime(); }, 1000);
-            console.log(`Interval started`);
         }
         
         if (this.lockBoard) return;
